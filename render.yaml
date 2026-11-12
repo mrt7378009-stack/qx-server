@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: qx-server
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python qx_server.py
+    healthCheckPath: /health
+    envVars:
+      - key: QUOTEX_EMAIL
+        sync: false
+      - key: QUOTEX_PASSWORD
+        sync: false
+      - key: QX_API_KEYS
+        sync: false
+      - key: QX_SESSION_JSON
+        sync: false
